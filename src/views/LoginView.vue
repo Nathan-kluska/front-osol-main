@@ -1,43 +1,59 @@
 <template>
-  <div class="mx-4">
-    <img src="../assets/img/Osol.png" alt="" />
-  </div>
-  <div class="grid">
-    <div class="col marginTop mx-5">
-      <h3>Log in</h3>
-      <div class="field">
-        <label for="email">E-mail</label>
-        <div>
-          <InputText id="email" class="w-full" placeholder="Enter your Email" type="email" />
+  <div class="flex flex-column overflow-auto">
+    <header class="col-2 flex mx-4">
+      <img class="osol" src="../assets/img/Osol.png" alt="" />
+    </header>
+    <div class="grid-container">
+      <main class="col flex">
+        <div class="col mt-8 mx-4 log">
+          <h3>Log in</h3>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <div>
+              <InputText id="email" class="w-full" type="email" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <div>
+              <Password
+                class="holder-size"
+                :style="{ width: '100%' }"
+                :inputStyle="{ width: '100%' }"
+                id="password"
+                v-model="valuee"
+                toggleMask
+              />
+            </div>
+          </div>
+          <div class="field">
+            <div class="flex justify-content-between w-full mt-5">
+              <Button @click="goToDashboard" class="border-round-2xl w-2 btn"
+                ><span class="button-label">Log in</span></Button
+              >
+              <a class="no-underline mdpp" href="">Forgot password ?</a>
+            </div>
+          </div>
+          <div class="field mt-5">
+            <div>
+              <SelectButton v-model="value" :options="options" />
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="field w-full">
-        <label for="password">Password</label>
-        <div>
-          <Password id="password" placeholder="Enter your Password" v-model="valuee" toggleMask />
+        <div class="col">
+          <img src="../assets/img/baseOsol.png" alt="" class="img-base" />
         </div>
-      </div>
-      <div class="field">
-        <div class="flex justify-content-between w-full mt-5">
-          <Button @click="goToDashboard" class="border-round-2xl w-2 btn" label="Log in"></Button>
-          <a class="no-underline" href="">Forgot password ?</a>
-        </div>
-      </div>
-      <div class="field mt-5">
-        <div>
-          <SelectButton v-model="value" :options="options" />
-        </div>
-      </div>
-      <p class="request">
-        For any request, please contact
-        <a class="link-to-email" href="mailto:support@osol.com">support@osol.com</a>
-      </p>
+      </main>
     </div>
-    <div class="col-md-4 p-0">
-      <img src="../assets/img/baseOsol.png" alt="" class="img-base" />
+    <div class="grid-footer">
+      <footer class="col-5 flex mx-4">
+        <p class="request">
+          For any request, please contact
+          <a class="link-to-email" href="mailto:support@osol.com">support@osol.com</a>
+        </p>
+      </footer>
     </div>
   </div>
-  
 </template>
 
 <script setup lang="ts">
@@ -50,64 +66,104 @@ function goToDashboard() {
 }
 </script>
 
-<style>
-#password {
-  width: 100%;
-}
-#password > input {
-  width: 100%;
-}
+<style scoped>
 .btn {
   background-color: #40454e;
-  font-size: 14px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center; /* Centrage vertical */
+  justify-content: center;
+}
+.button-label {
+  white-space: nowrap;
 }
 .request {
-  font-size: 14px;
-  margin-top: 9rem;
+  font-size: 1rem;
+  margin-top: 10px;
 }
 .link-to-email {
   color: rgb(152, 152, 219);
-  font-size: 14px;
-  font-family: Arial, sans-serif;
+  font-size: 1rem;
 }
 a {
-  font-size: 14px;
+  font-size: 1rem;
   color: #40454e;
 }
 h3 {
   color: #40454e;
-  font-size: 24px;
+  font-size: 1.3rem;
 }
-::placeholder {
-  font-size: 14px;
+#email {
+  font-size: 1rem;
 }
 
+.img-base {
+  width: 100%;
+  margin-left: 16px;
+  justify-content: center;
+}
 
-@media (max-width: 1200px) {
-  .grid {
-    display: flex;
+.grid-container {
+  display: flex;
+}
+.grid-footer {
+  display: flex;
+  width: 100%;
+}
+main {
+  height: 100%;
+}
+.log {
+  height: 450px;
+}
+
+@media (max-width: 1250px) {
+  a,
+  .link-to-email,
+  .request,
+  .btn,
+  label,
+  .mdpp {
+    font-size: 0.8rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  main {
     flex-direction: column;
   }
-
-  .col-md-4 {
-    width: 100%;
-  }
-
-  .col-md {
-    width: 100%;
+  .img-base {
+    margin-left: -40px;
   }
 }
-
-.marginTop {
-  margin-top: 7%;
-}
-
-@media (min-width: 1199px) {
-  body::-webkit-scrollbar {
-    display: none;
+@media (max-width: 750px) {
+  .col-5 {
+    width: 450px;
   }
-  body {
-    overflow: hidden;
+  .img-base {
+    margin-left: -30px;
+  }
+}
+@media (max-width: 500px) {
+  .img-base {
+    margin-left: -20px;
+  }
+  .col-5 {
+    width: 90%;
+  }
+}
+@media (max-width: 390px) {
+  .btn {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 340px) {
+  .link-to-email,
+  .request {
+    font-size: 0.7rem;
   }
 }
 </style>

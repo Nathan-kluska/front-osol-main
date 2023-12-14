@@ -1,4 +1,7 @@
-
+body,
 #app {
-    font-family: sans-serif;
-  }
+  width: 100%;
+  font-family: sans-serif;
+  margin: 0;
+  height: 100%;
+}
