@@ -1,6 +1,6 @@
 <template>
-  <header class="grid m-0">
-    <div class="col-2 flex flex-column">
+  <div class="grid m-0">
+    <header class="col-2 flex flex-column">
       <svg
         class="image mx-1 mt-2"
         xmlns="http://www.w3.org/2000/svg"
@@ -133,8 +133,9 @@
           </li>
         </ul>
       </nav>
-    </div>
-  </header>
+    </header>
+    <main></main>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -184,7 +185,8 @@ function goToTickets() {
   padding: 0;
 }
 .alone {
-  margin-top: 70%;
+  margin-top: 80%;
+  padding-bottom: 11px;
 }
 .hover:hover {
   background-color: #f6ce54;

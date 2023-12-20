@@ -37,6 +37,9 @@ import ColumnGroup from 'primevue/columngroup' // optional
 import Row from 'primevue/row' // optional
 import MultiSelect from 'primevue/multiselect'
 import axios from 'axios'
+import Paginator from 'primevue/paginator'
+import Dialog from 'primevue/dialog'
+import Checkbox from 'primevue/checkbox'
 
 const app = createApp(App)
 
@@ -44,7 +47,10 @@ app.use(router)
 app.use(PrimeVue, { ripple: true })
 app.directive('ripple', Ripple)
 app.component('Password', Password)
+app.component('Paginator', Paginator)
+app.component('Checkbox', Checkbox)
 app.component('Divider', Divider)
+app.component('Dialog', Dialog)
 app.component('Image', Image)
 app.component('AutoComplete', AutoComplete)
 app.component('SelectButton', SelectButton)

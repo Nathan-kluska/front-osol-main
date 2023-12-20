@@ -28,7 +28,7 @@
           </div>
           <div class="field">
             <div class="flex justify-content-between w-full mt-5">
-              <Button @click="goToDashboard" class="border-round-2xl w-2 btn"
+              <Button @click="goToListOfOrganizations" class="border-round-2xl w-2 btn"
                 ><span class="button-label">Log in</span></Button
               >
               <a class="no-underline mdpp" href="">Forgot password ?</a>
@@ -61,8 +61,8 @@ import { ref } from 'vue'
 const valuee = ref(null)
 const value = ref('English')
 const options = ref(['English', 'French'])
-function goToDashboard() {
-  window.location.href = '/dashboard'
+function goToListOfOrganizations() {
+  window.location.href = '/list_of_organizations'
 }
 </script>
 
@@ -115,6 +115,26 @@ main {
 }
 .log {
   height: 450px;
+}
+
+@media (max-width: 1441px) {
+  .log {
+    height: 600px;
+  }
+  .grid-footer {
+    margin-top: 20px;
+  }
+  a,
+  .link-to-email,
+  .request,
+  .btn,
+  label,
+  .mdpp {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 1250px) {
